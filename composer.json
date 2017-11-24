@@ -1,0 +1,12 @@
+{
+    "name": "root/pro",
+    "authors": [
+        {
+            "name": "Alexey Loginov",
+            "email": "a.loginov@outlook.com"
+        }
+    ],
+    "require": {
+        "php-imap/php-imap": "^3.0"
+    }
+}
