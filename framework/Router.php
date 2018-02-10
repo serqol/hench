@@ -24,7 +24,12 @@ class Router {
         $matches = explode('/', $requestUri);
         $isActionSpecified = count($matches) > 1 && end($matches) !== '';
         $action = $isActionSpecified ? array_pop($matches) . 'Action' : 'indexAction';
-        $mainPath = implode($matches) ?: '/';
+        var_dump($requestUri);
+        var_dump($matches);
+        $mainPath = implode('/' ,array_filter($matches, function($element) {
+            return $element !== '';
+        })) ?: '/';
+        var_dump($mainPath);
 
         if (!array_key_exists($mainPath, $this->_routes)) {
             throw new NotFound("Controller {$mainPath} was not found");
