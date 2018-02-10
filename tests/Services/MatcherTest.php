@@ -22,10 +22,6 @@ class MatcherTest extends TestCase {
     }
 
     /**
-     * fio, birth date, sex, doctor, city, moscow requisites
-     */
-
-    /**
      * @param array $input
      * @param array $expected
      * @dataProvider matchQueueDataProvider
@@ -33,26 +29,6 @@ class MatcherTest extends TestCase {
     public function testMatchRowsByMappers($input, $expected) {
         $this->assertEquals($expected, $this->_matcher->matchRowsByMappers($input, MAPPERS));
     }
-
-    /**
-     * @param string $subject
-     * @param string $expected
-     */
-/*    public function testMatchDateInSubject($subject, $expected) {
-        $this->assertEquals($expected, $this->_matcher->matchDateInSubject($subject));
-    }*/
-
-    /**
-     * @return array
-     */
-/*    public function matchDateInSubjectProvider() {
-        return [
-            ['Тема: Расчет и Анализ ТРГ/ Асатрян Л.А./ ДЦ Люберцы/ 29.12.17 до 18:00', ['date' => '29.12.17', 'time' => 'до 18:00']],
-            ['Тема: ЗАЯВКА: МОСКВА/Расчет и Анализ ТРГ/ Борисов Игорь Борисович /Готовность 29.12.17 до 12:00', ['date' => '29.12.17', 'time' => 'до 12:00']],
-            ['Тема: ЗАЯВКА: Новосибирск/Красный пр-т/Анализ и Расчет ТРГ/Жилина Александра Андреевна/25.12.17', ['date' => '25.12.17', 'time' => null]],
-            ['Тема: ЗАЯВКА: Спб /Анализ и расчет ТРГ по Dolphin \Богданова Светлана Юрьевна\ \СД 32021 \ 12.12.2017', ['date' => '12.12.2017', 'time' => null]],
-        ];
-    }*/
 
     /**
      * @param string $input
@@ -97,7 +73,6 @@ class MatcherTest extends TestCase {
                     'ready_date' => '29.12.17 до 12',
                     'id'         => '19319',
                     'date'       => '27.12.2017',
-            //        'city'       => 'Moscow',
                 ]
             ]
 

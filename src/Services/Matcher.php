@@ -33,15 +33,9 @@ class Matcher {
         return $result;
     }
 
-    /**
-     * @param string $subject
-     * @return array $result
-     */
-/*    public function matchDateInSubject($subject) {  //TODO: выпилить либо имплементировать наравне с матчингом
-        $result = [];
+    public function matchRowsByMappersNew($queue, $mappers) {
 
-        return $result;
-    }*/
+    }
 
     /**
      * @param string $text

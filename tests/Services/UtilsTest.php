@@ -23,7 +23,7 @@ class UtilsTest extends TestCase {
 
     /**
      * @param string $input
-     * @param string $expected
+     * @param array $expected
      * @dataProvider getRowsDataProvider
      */
     public function testGetRows($input, $expected) {
@@ -63,7 +63,7 @@ class UtilsTest extends TestCase {
                 
                 
                 
-                
+            
                 1Анализ и расчет ТРГ по Dolphin:
                 
                 2Дата исследования 07.12.2017
@@ -103,7 +103,6 @@ class UtilsTest extends TestCase {
                 Диагностика "Пикассо" - гарантия качества и высокий уровень сервиса.
                 Мы рады быть полезными Вам и Вашим пациентам.',
                 [
-                    'picasso.dop2@gmail.com',
                     '1Анализ и расчет ТРГ по Dolphin:',
                     '2Дата исследования 07.12.2017',
                     '3 Оборудование на котором было сделано:Vatech',
@@ -118,6 +117,7 @@ class UtilsTest extends TestCase {
                     '12 Комментарий врача(из направления) или со слов пациента:направл нет',
                     '13 Дата готовности с конкретизацией времени:.12.12.2017',
                     '14 ФИО лаборанта,который отправил заявку/ Название центра: Манджикова Э.С \\',
+                    'picasso.dop2@gmail.com',
                 ]
             ]
         ];

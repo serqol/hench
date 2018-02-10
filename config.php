@@ -3,7 +3,6 @@
 const GMAIL_DRAFT_IDENTIFIER = '[Gmail]/Drafts';
 const ORDER_ID = 'ЗАЯВКА';
 const FROM_KEY = 98;
-const SUBJECT_KEY = 99;
 const DEFAULT_SUBJECT = 'Расчет и анализ ТРГ.';
 const DEFAULT_CENTRE_EMAIL = 'uslugi.moskva@gmail.com';
 const MAX_BROKEN_FIELDS_COUNT = 2;

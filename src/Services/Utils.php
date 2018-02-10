@@ -2,6 +2,8 @@
 
 namespace Core\Services;
 
+require_once __DIR__ . '/../../config.php';
+
 use Core\Traits;
 
 class Utils {
@@ -20,22 +22,34 @@ class Utils {
     /**
      * @param string $text
      * @param string $delimiter
+     * @param bool $isSubRoutine
      * @return array
      */
-    public function getListRowsAndRedirectionEmailFromText($text, $delimiter = "\n") {
+    public function getListRowsAndRedirectionEmailFromText($text, $delimiter = "\n", $isSubRoutine = false) {
         $result = [];
+        $mail = '';
         $index = 1;
         $string = strtok($text, $delimiter);
         while (is_string($string)) {
+            if (!$isSubRoutine) {
+                if (strpos($string, 'От кого:') === 0 || strpos($string, 'От:') === 0) { // TODO: Its ugly and fast. Make it clean and fast.
+                    $mail = $this->_matcher->matchEmail($string);
+                } elseif ($mail === '') {
+                    $string = strtok($delimiter);
+                    continue;
+                }
+            }
+            if ($mail === '' && $isSubRoutine === false) {
+                return $this->getListRowsAndRedirectionEmailFromText($text, $delimiter = "\n", true);
+            }
             $string = trim($string);
             if ($this->isStringMatchesIndex(trim($string), $index)) {   //TODO: Use objects instead of arrays
                 $result[] = trim($string);
                 $index++;
-            } elseif (strpos($string, 'От кого:') === 0 || strpos($string, 'От:') === 0) {
-                $result[FROM_KEY] = $this->_matcher->matchEmail($string);
             }
             $string = strtok($delimiter);
         }
+        $result[FROM_KEY] = $mail;
         return $result;
     }
 

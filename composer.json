@@ -18,7 +18,10 @@
     "autoload": {
         "psr-4": {
             "Core\\":"src/",
-            "Tests\\":"tests/"
+            "Tests\\":"tests/",
+            "Controllers\\":"controllers/",
+            "Framework\\":"framework/",
+            "Exceptions\\":"exceptions/"
         }
     }
 }

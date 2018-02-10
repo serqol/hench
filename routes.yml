@@ -1,0 +1,6 @@
+/:
+  controller: Main
+  name: main
+auth:
+  controller: Authorization
+  name: auth
