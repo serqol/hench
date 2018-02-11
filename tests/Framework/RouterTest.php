@@ -33,6 +33,15 @@ class RouterTest extends TestCase {
     }
 
     /**
+     * @param $requestUri
+     * @param $expected
+     * @dataProvider matchDataProvider
+     */
+    public function testMatchNew($requestUri, $expected) {
+        $this->assertEquals($expected, $this->_router->matchNew($requestUri));
+    }
+
+    /**
      * @return array
      */
     public function matchDataProvider() {

@@ -4,6 +4,6 @@
 auth:
   controller: Authorization
   name: auth
-auth/kinki:
+auth/kinky:
   controller: Kinky
   name: kinky

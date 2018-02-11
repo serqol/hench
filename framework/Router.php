@@ -24,12 +24,13 @@ class Router {
         $matches = explode('/', $requestUri);
         $isActionSpecified = count($matches) > 1 && end($matches) !== '';
         $action = $isActionSpecified ? array_pop($matches) . 'Action' : 'indexAction';
-        var_dump($requestUri);
-        var_dump($matches);
         $mainPath = implode('/' ,array_filter($matches, function($element) {
             return $element !== '';
         })) ?: '/';
+
         var_dump($mainPath);
+
+        var_dump($this->_routes);
 
         if (!array_key_exists($mainPath, $this->_routes)) {
             throw new NotFound("Controller {$mainPath} was not found");
@@ -44,6 +45,15 @@ class Router {
         $routeName = $this->_routes[$mainPath]['name'];
 
         return new Route($routeName, $controller, $action);
+    }
+
+    /**
+     * @param string $requestUri
+     */
+    public function matchNew($requestUri) {
+
+        return $requestUri;
+
     }
 
     /**

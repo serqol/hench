@@ -5,4 +5,3 @@ try {
 } catch (\Throwable $t) {
     echo $t->getMessage();
 }
-
