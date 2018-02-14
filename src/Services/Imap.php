@@ -112,8 +112,8 @@ class Imap {
             $name = array_key_exists('name', $attachment) ? $attachment['name'] : $attachment['filename'];
             $nameParts = explode('.', $name);
             if($attachment['is_attachment'] == 1 && isset($nameParts[1]) && in_array($nameParts[1], ['jpg', 'png'])) {
-                $fileName = $fileName . ' - ' . (string)$fileIndex;
-                $fp = fopen(__DIR__ . '/../../report/trg_pictures/' . $fileName, "w+");
+                $fileNameNumerated = $fileName . ' - ' . (string)$fileIndex;
+                $fp = fopen(__DIR__ . '/../../report/trg_pictures/' . $fileNameNumerated, "w+");
                 fwrite($fp, $attachment['attachment']);
                 fclose($fp);
                 $fileIndex++;

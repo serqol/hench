@@ -14,7 +14,16 @@ class Template {
      */
     private $_templatesFiles;
 
+    /**
+     * @var Fixer
+     */
+    private $_fixer;
+
     use Initializer;
+
+    protected function _init() {
+        $this->_fixer = Fixer::initWithArgs();
+    }
 
     /**
      * @param Mail $mail
@@ -30,7 +39,7 @@ class Template {
             echo "File {$templateFile} does not exist! \n";
             return false;
         }
-        return copy($templateFile, TRG_CALCULATIONS_PATH . $mailData['name'] . '. Заключение.');
+        return copy($templateFile, TRG_CALCULATIONS_PATH . $this->_fixer->fixFullName($mailData['name']) . ' Заключение.');
     }
 
     /**
