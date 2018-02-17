@@ -45,7 +45,8 @@ class Template {
             echo "File {$templateFile} does not exist! \n";
             return false;
         }
-        return copy($templateFile, TRG_CALCULATIONS_PATH . $this->_fixer->fixFullName($mailData['name']) . ' Заключение.');
+        $fileExtension = $this->_utils->getFileExtension($templateFile);
+        return copy($templateFile, TRG_CALCULATIONS_PATH . $this->_fixer->fixFullName($mailData['name']) . ' Заключение.' . $fileExtension);
     }
 
     /**
