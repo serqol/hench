@@ -61,4 +61,12 @@ class Utils {
     public function isStringMatchesIndex($string, $index) {
         return strpos($string, (string)$index) === 0;
     }
+
+    /**
+     * @param string $fileName
+     * @return string
+     */
+    public function getFileExtension($fileName) {
+        return substr(strrchr($fileName, '.'), 1);
+    }
 }

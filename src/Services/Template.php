@@ -19,10 +19,16 @@ class Template {
      */
     private $_fixer;
 
+    /**
+     * @var Utils
+     */
+    private $_utils;
+
     use Initializer;
 
     protected function _init() {
         $this->_fixer = Fixer::initWithArgs();
+        $this->_utils = Utils::initWithArgs();
     }
 
     /**

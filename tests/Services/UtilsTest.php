@@ -49,6 +49,26 @@ class UtilsTest extends TestCase {
     }
 
     /**
+     * @param string $input
+     * @param string $expected
+     * @dataProvider getFileExtensionDataProvider
+     */
+    public function testGetFileExtension($input, $expected) {
+        $this->assertEquals($expected, $this->_utils->getFileExtension($input));
+    }
+
+    /**
+     * @return array
+     */
+    public function getFileExtensionDataProvider() {
+        return [
+            ['filaname.com',           'com'],
+            ['game.exe',               'exe'],
+            ['/home/pics/cow.jpg',     'jpg'],
+        ];
+    }
+
+    /**
      * @return array
      */
     public function getRowsDataProvider() {
