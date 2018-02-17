@@ -111,13 +111,15 @@ class Imap {
         foreach($attachments as $attachment) {
             $name = array_key_exists('name', $attachment) ? $attachment['name'] : $attachment['filename'];
             $nameParts = explode('.', $name);
-            if($attachment['is_attachment'] == 1 && isset($nameParts[1]) && in_array($nameParts[1], ['jpg', 'png'])) {
-                $fileNameNumerated = $fileName . ' - ' . (string)$fileIndex;
-                $fp = fopen(__DIR__ . '/../../report/trg_pictures/' . $fileNameNumerated, "w+");
-                fwrite($fp, $attachment['attachment']);
-                fclose($fp);
-                $fileIndex++;
+            if (!isset($nameParts[1]) || !in_array($nameParts[1], ['jpg', 'png']) || $attachment['is_attachment'] != 1) {
+                continue;
             }
+            $fileExtension = $nameParts[1];
+            $fileNameNumerated = $fileName . ' - ' . (string)$fileIndex;
+            $fp = fopen(__DIR__ . '/../../report/trg_pictures/' . $fileNameNumerated . ".{$fileExtension}", "w+");
+            fwrite($fp, $attachment['attachment']);
+            fclose($fp);
+            $fileIndex++;
         }
     }
 
