@@ -44,7 +44,7 @@ class Fixer {
         }
         $nameParts = explode(' ', $name);
         if (count($nameParts) !== 3) {
-            return '';
+            return $name;
         }
         $lastName = $nameParts[0];
         $firstNameInitial = substr($nameParts[1], 0, 2);
