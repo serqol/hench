@@ -19,6 +19,19 @@ class Fixer {
         return $matches[0];
     }
 
+    public function fixSex($sex) {
+        echo "Fixing sex {$sex} \n";
+        if (strlen($sex) <= 1) {
+            return $sex;
+        }
+        if (preg_match('#м#', $sex)) {
+            $sex = 'м';
+        } else {
+            $sex = 'ж';
+        }
+        return $sex;
+    }
+
     /**
      * @param $name
      * @return string

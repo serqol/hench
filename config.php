@@ -31,7 +31,7 @@ const MAPPERS = [
     'sex'        => [
         'matchInfo' => ['Пол пациента', 'Пол'],
         'columnKey' => 'E',
-        'fixMethod' => null,
+        'fixMethod' => 'fixSex',
         'required'  => true,
     ],
     'doctor'     => [
