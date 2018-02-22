@@ -10,12 +10,6 @@ const TEMPLATES_PATH = __DIR__ . '/templates/';
 const TRG_CALCULATIONS_PATH = __DIR__ . '/report/trg_calculations/';
 
 const MAPPERS = [
-    'id'         => [
-        'matchInfo' => ['Номер исследования', 'номер'],
-        'columnKey' => 'M',
-        'fixMethod' => null,
-        'required'  => false,
-    ],
     'date'       => [
         'matchInfo' => ['Дата исследования', 'Дата проведения исследования'],
         'columnKey' => 'H',
@@ -43,7 +37,7 @@ const MAPPERS = [
     'doctor'     => [
         'matchInfo' => ['врач'],
         'columnKey' => 'F',
-        'fixMethod' => null,
+        'fixMethod' => 'fixFullName',
         'required'  => false
     ],
     'city'       => [

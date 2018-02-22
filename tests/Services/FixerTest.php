@@ -33,6 +33,7 @@ class FixerTest extends TestCase {
             ['11.20.2017\4 года', '11.20.2017'],
             ['07.12.2017 13 лет', '07.12.2017'],
             ['03.06.1964г/53',    '03.06.1964'],
+            ['15.06.11 (6 лет)',  '15.06.2011']
         ];
     }
 
@@ -43,6 +44,25 @@ class FixerTest extends TestCase {
      */
     public function testFixFullName($name, $expected) {
         $this->assertEquals($expected, $this->_fixer->fixFullName($name));
+    }
+
+    /**
+     * @param string $name
+     * @param bool $expected
+     * @dataProvider isFixedNameDataProvider
+     */
+    public function testIsFixedName($name, $expected) {
+        $this->assertEquals($expected, $this->_fixer->isNameFixed($name));
+    }
+
+    public function isFixedNameDataProvider() {
+        return [
+            ['Логинов А.А.',      true],
+            ['Дягтерёв П. В.',    true],
+            ['Дягтерёв    в. В.', true],
+            ['Дягтерёв П. В.',    true],
+            ['Дягтерёв П. В.',    true],
+        ];
     }
 
     /**
