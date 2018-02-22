@@ -57,11 +57,12 @@ class FixerTest extends TestCase {
 
     public function isFixedNameDataProvider() {
         return [
-            ['Логинов А.А.',      true],
-            ['Дягтерёв П. В.',    true],
-            ['Дягтерёв    в. В.', true],
-            ['Дягтерёв П. В.',    true],
-            ['Дягтерёв П. В.',    true],
+            ['Логинов А.А.',            true],
+            ['Дягтерёв П. В.',          true],
+            ['Дягтерёв    в. В.',       true],
+            ['Дягтерёв П. В.',          true],
+            ['Дягтерёв П. В.',          true],
+            ['Дягтерёв Вадим Петрович', false],
         ];
     }
 

@@ -13,7 +13,6 @@ class Fixer {
      */
     public function fixDate($date) {
         preg_match('#\d{1,2}[/\.]{1}\d{1,2}[/\.]{1}\d{2,4}#', $date, $matches);
-        var_dump($matches);
         if (!isset($matches[0])) {
             return $date;
         }
@@ -25,6 +24,8 @@ class Fixer {
      * @return string
      */
     public function fixFullName($name) {
+        $name = trim($name, " \t\n\r\0\x0B:;");
+        echo "Fixing fullname {$name} \n";
         if ($this->isNameFixed($name)) {
             return $name;
         }
@@ -43,7 +44,7 @@ class Fixer {
      * @return bool
      */
     public function isNameFixed($name) {
-        return preg_match('#[а-Я]+ *[а-Я]{1}. *[а-Я]{1}.#', $name) > 0;
+        return preg_match('#[А-Яа-я\-]+\s+[А-Яа-я\-]+\.\s*[А-Яа-я\-]+\.#', $name) > 0;
     }
 
     /**

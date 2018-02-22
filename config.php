@@ -19,7 +19,7 @@ const MAPPERS = [
     'name'       => [
         'matchInfo' => ['ФИО'],
         'columnKey' => 'B',
-        'fixMethod' => null,
+        'fixMethod' => 'fixFullName',
         'required'  => true,
     ],
     'birth_date' => [
