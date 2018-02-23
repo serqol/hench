@@ -46,7 +46,7 @@ class Template {
             return false;
         }
         $fileExtension = $this->_utils->getFileExtension($templateFile);
-        return copy($templateFile, TRG_CALCULATIONS_PATH . $this->_fixer->fixFullName($mailData['name']) . ' Заключение.' . $fileExtension);
+        return copy($templateFile, TRG_CALCULATIONS_PATH . $mailData['name'] . ' Заключение.' . $fileExtension);
     }
 
     /**
