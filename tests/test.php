@@ -12,4 +12,4 @@ $sections = $phpWord->getSections();
 $section = $sections[0];
 $arrays = $section->getElements();
 
-var_dump($arrays);
+var_export($arrays);
